@@ -21,6 +21,14 @@ Application développée pour répondre à un besoin réel d’arbitrage en club
 
 ---
 
+## Stack technique
+
+- Kotlin
+- Jetpack Compose
+- Clean Architecture
+- Room
+- Hilt
+
 ## Aperçu
 
 ### Combat en cours
