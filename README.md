@@ -6,6 +6,10 @@ Projet réel utilisé en club (code privé)
 
 ---
 
+## Contexte
+
+Application développée pour répondre à un besoin réel d’arbitrage en club, avec des contraintes de rapidité, lisibilité et fiabilité en situation de combat.
+
 ## Fonctionnalités
 
 - Gestion des combats (rounds, score)
