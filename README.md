@@ -10,14 +10,28 @@ Projet réel utilisé en club (code privé)
 
 Application développée pour répondre à un besoin réel d’arbitrage en club, avec des contraintes de rapidité, lisibilité et fiabilité en situation de combat.
 
-## Fonctionnalités
+## Fonctionnalités principales
 
-- Gestion des combats (rounds, score)
-- Attribution de points (+1, +2, -1, -2)
-- Gestion des pénalités (cartons jaunes / rouges)
-- Détection automatique du gagnant
+- Création et gestion de combattants
+- Sélection des combattants avant combat
+- Gestion des manches
+- Score en temps réel
+- Attribution de points : +1, +2, -1, -2
+- Timer configurable : 1 minute / 1 minute 30
 - Gestion des égalités
-- Timer configurable
+- Gestion des pénalités par cartons
+- Sauvegarde de l’historique des combats
+- Détail d’un combat terminé
+- Statistiques par combattant :
+  - combats
+  - victoires
+  - défaites
+  - égalités
+  - points donnés
+  - points reçus
+  - manches gagnées / perdues / égalité
+  - ratios
+- Favoris
 
 ---
 
@@ -31,29 +45,38 @@ Application développée pour répondre à un besoin réel d’arbitrage en club
 
 ## Aperçu
 
-### Combat en cours
-![Main](screenshots/main.png)
+### Arbitrage — début de combat
+![Arbitrage - Début de combat](screenshots/referee-fight-start.png)
 
-### Utilisation en combat réel
-![Use](screenshots/use.png)
+### Arbitrage — combat en cours
+![Arbitrage - Combat en cours](screenshots/referee-fight-progress.png)
 
-### Gestion des erreurs / état
-![Toast](screenshots/use-with-toast.png)
+### Arbitrage — combat avec pénalité
+![Arbitrage - Combat avec pénalité](screenshots/referee-fight-with-penalty.png)
 
-### Attribution de pénalité
-![Penalty](screenshots/penality-control.png)
+### Ajout d’un combattant
+![Ajout d’un combattant](screenshots/add-fighter.png)
 
-### Écran carton jaune
-![Yellow Card](screenshots/penality-yellow-screen.png)
+### Liste des combattants
+![Liste des combattants](screenshots/fighters-list.png)
 
-### Gestion égalité
-![Equality](screenshots/egality-last-round.png)
+### Profil d’un combattant
+![Profil d’un combattant](screenshots/fighter-detail1.png)
+
+### Statistiques avancées d’un combattant
+![Statistiques avancées d’un combattant](screenshots/fighter-detail2.png)
+
+### Historique des combats
+![Historique des combats](screenshots/match-history1.png)
+
+### Historique des combats — autre état
+![Historique des combats - autre état](screenshots/match-history2.png)
+
+### Écran de pénalité jaune
+![Écran de pénalité jaune](screenshots/yellow-penalty.png)
 
 ### Fin de combat
-![Winner](screenshots/winner.png)
-
----
-
+![Fin de combat](screenshots/combat-end.png)
 ## Architecture
 
 Application structurée selon les principes de Clean Architecture avec séparation des responsabilités.
