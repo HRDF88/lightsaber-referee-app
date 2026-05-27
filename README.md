@@ -2,7 +2,7 @@
 
 Application Android développée en Kotlin pour l’arbitrage de combats en temps réel.
 
-Projet réel utilisé en club (code privé)
+Projet réel utilisé en club — dépôt vitrine technique
 
 ---
 
