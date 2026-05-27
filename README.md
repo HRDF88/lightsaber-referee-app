@@ -39,9 +39,25 @@ Application développée pour répondre à un besoin réel d’arbitrage en club
 
 - Kotlin
 - Jetpack Compose
+- Material 3
+- MVVM
 - Clean Architecture
 - Room
 - Hilt
+- Coroutines / Flow
+- Navigation Compose
+- UiState
+
+## Ce que ce projet démontre
+
+- Conception d’une application Android complète à partir d’un besoin réel
+- Gestion d’un état métier complexe en temps réel
+- Séparation claire entre UI, logique métier et persistance locale
+- Utilisation de ViewModels et UiState pour piloter l’interface
+- Persistance des combats, manches, statistiques et combattants avec Room
+- Organisation du code en couches `data`, `domain` et `ui`
+- Composants Jetpack Compose réutilisables
+- Interface personnalisée avec une identité visuelle forte
 
 ## Aperçu
 
@@ -270,6 +286,6 @@ Application initialement développée en XML puis migrée vers Jetpack Compose.
 
 ## Note
 
-Le code source complet n’est pas public car utilisé dans un cadre réel.
+Le code source complet n’est pas public car l’application est utilisée dans un cadre réel.
 
-Ce dépôt présente l’architecture et les fonctionnalités développées.
+Ce dépôt sert de vitrine technique : il présente les fonctionnalités, l’architecture, les écrans principaux et les choix de conception.
