@@ -192,7 +192,7 @@ Exemples :
 
 ### UI Layer — Composants et écrans
 
-![UI Layer Components and Screens](architecture/ui-layer-components.png)
+![UI Layer Components and Screens](architecture/ui-layer-components-and-screens.png)
 
 L’interface est construite avec Jetpack Compose et découpée en composants réutilisables.
 
