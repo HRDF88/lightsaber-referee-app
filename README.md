@@ -77,53 +77,178 @@ Application développée pour répondre à un besoin réel d’arbitrage en club
 
 ### Fin de combat
 ![Fin de combat](screenshots/combat-end.png)
+
 ## Architecture
 
-Application structurée selon les principes de Clean Architecture avec séparation des responsabilités.
+L’application est structurée selon une approche inspirée de la Clean Architecture, avec une séparation claire entre les responsabilités métier, données et interface utilisateur.
 
-- Data layer : Room (DAO, Database), repositories avec interfaces  
-- Domain layer : modèles métier + use cases découplés  
-- UI layer : ViewModel, UI State, Jetpack Compose  
-- Injection de dépendances avec Hilt  
-- Organisation des use cases via des containers pour simplifier l’injection et structurer la logique métier  
+L’objectif est de garder une base de code maintenable, testable et évolutive.
 
-Logique métier encapsulée (gestion des combats, scores, statistiques)  
-Séparation stricte des responsabilités pour garantir testabilité et maintenabilité  
+- **Data layer** : persistance locale avec Room, DAO, entités et repositories
+- **Domain layer** : modèles métier, règles d’arbitrage, mappers et use cases
+- **UI layer** : écrans Jetpack Compose, ViewModels, UiState et composants réutilisables
+- **DI layer** : injection de dépendances avec Hilt
+- **Utils** : fonctions partagées pour les images, dates, détection tablette/mobile et calculs statistiques
+
+La logique métier importante est encapsulée dans la couche `domain`, notamment la gestion des combats, des manches, des scores, des pénalités et des statistiques.
 
 ---
 
 ### Data Layer
-![Data](architecture/data-layer.png)
 
-- Room (DAO, Database)
-- Repositories avec interfaces
+![Data Layer](architecture/data-layer.png)
+
+La couche `data` gère la persistance locale et l’accès aux données.
+
+Elle contient notamment :
+
+- Room Database
+- DAO
+- Entities
+- Repositories
+- Interfaces de repositories
+- Converters Room
+
+Cette couche permet de découpler la logique métier de l’implémentation concrète de la base de données.
 
 ---
 
 ### Domain Layer
-![Domain](architecture/domain-layer.png)
 
-- Modèles métier (Warrior, Statistics)
-- Use cases organisés par domaine
-- Containers de use cases (WarriorUseCases, StatisticsUseCases)
+![Domain Layer](architecture/domain-layer.png)
+
+La couche `domain` contient les modèles métier et la logique centrale de l’application.
+
+Elle regroupe notamment :
+
+- modèles métier :
+  - `Warrior`
+  - `Match`
+  - `ScoreRound`
+  - `StatisticFight`
+  - `SaberColor`
+- règles métier :
+  - `ArbitrageRegles`
+  - `CartonRules`
+  - `ParamsReglesArbitrage`
+  - `ScoreManche`
+- mappers entre les modèles
+
+Cette couche permet de garder les règles d’arbitrage indépendantes de l’interface utilisateur et de la base de données.
 
 ---
 
-### UI Layer
-![UI](architecture/ui-layer.png)
+### Domain Use Cases
 
-- ViewModel et UI State
-- Jetpack Compose
-- Composants UI réutilisables
+![Domain Use Cases](architecture/domain-useCases.png)
+
+Les use cases sont organisés par domaine fonctionnel :
+
+- gestion des combats
+- gestion des combattants
+- gestion des statistiques
+- gestion des combattants avec statistiques
+- observation des données via Flow
+- sauvegarde, mise à jour et suppression
+
+Des containers de use cases permettent de simplifier l’injection et de regrouper les actions métier liées à une même fonctionnalité.
+
+Exemples :
+
+- `MatchHistoryUseCases`
+- `WarriorUseCases`
+- `StatisticsUseCases`
+- `WarriorWithStatsUseCases`
+
+---
+
+### UI Layer — Screens et Utils
+
+![Screens and Utils](architecture/screens-and-utils.png)
+
+La couche UI est organisée par écran et par fonctionnalité.
+
+Elle contient notamment :
+
+- écrans Compose
+- ViewModels
+- UiState
+- modèles UI
+- navigation
+- thème graphique
+- fonctions utilitaires partagées
+
+Chaque écran possède une responsabilité claire avec son propre état d’interface.
+
+Exemples :
+
+- `FighterListScreen`
+- `FighterDetailScreen`
+- `MatchHistoryScreen`
+- `MatchDetailScreen`
+- `HomeScreen`
+
+---
+
+### UI Layer — Composants et écrans
+
+![UI Layer Components and Screens](architecture/ui-layer-components.png)
+
+L’interface est construite avec Jetpack Compose et découpée en composants réutilisables.
+
+On retrouve notamment :
+
+- écrans d’arbitrage
+- écrans de combat
+- écrans de cartons
+- ajout de combattant
+- détail combattant
+- composants de score
+- boutons d’action
+- sélecteurs de combattants
+- timer
+- affichage du vainqueur
+
+Cette organisation évite de concentrer toute la logique visuelle dans un seul écran Compose.
+
+---
+
+### UI Components
+
+![UI Components](architecture/ui-components.png)
+
+Les composants Compose sont séparés pour améliorer la lisibilité et la réutilisation.
+
+Exemples :
+
+- `CombatScreenContent`
+- `CombatHeader`
+- `CombatTimerSection`
+- `FighterDropdown`
+- `FighterSelectorsSection`
+- `CartonCounterIcon`
+- `VictoryButtonsSection`
+- `SaberBeam`
+- `SaberColorSelector`
+- `BottomBar`
+
+Cette approche permet de construire une interface riche tout en gardant des fichiers plus simples à maintenir.
 
 ---
 
 ### Core / Utils
-![Utils](architecture/utils.png)
 
-- Conversion Bitmap ↔ Base64
-- Détection device (tablet / mobile)
-- Logique partagée (calculs statistiques)
+![Core Utils](architecture/screens-and-utils.png)
+
+Le projet contient aussi des outils partagés utilisés à plusieurs endroits de l’application :
+
+- conversion Bitmap vers Base64
+- conversion Base64 vers Bitmap
+- gestion des images combattants
+- formatage des dates
+- détection tablette / mobile
+- calculs statistiques
+- routes de navigation
 
 ---
 
